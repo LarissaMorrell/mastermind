@@ -1,39 +1,22 @@
-import React, {Component} from "react";
-
-import Draggable from "react-draggable";
+import React, {useState} from "react";
 
 import "./Peg.css";
 
-class Peg extends Component {
-	state = {
-		activeDrags: 0,
-		deltaPosition: {
-			x: 0, y: 0
-		}
-	};
+const COLORS = ['blue', 'yellow', 'red', 'green', 'white', 'black'];
 
-	handleDrag = (e, ui) => {
-    const { x, y } = this.state.deltaPosition;
-    this.setState({
-      deltaPosition: {
-        x: x + ui.deltaX,
-        y: y + ui.deltaY,
-      }
-    });
-  }
+const Peg = ({updateRow, isActive}) => {
+	const [colorIndex, setColorIndex] = useState(null);
 
-	render() {
-		console.log(this.state)
-		return (
-			<Draggable
-				bounds="parent"
-				grid={[20, 20]}
-				onDrag={this.handleDrag}
-			>
-				<div className="Peg"/>
-			</Draggable>
-		);
+	const handleClick = () => {
+		if (!isActive) return;
+		setColorIndex((colorIndex + 1) % COLORS.length);
+		updateRow(COLORS[colorIndex + 1]);
 	}
+
+	const colorClass = colorIndex !== null ? ' ' + COLORS[colorIndex] : ' empty';
+	return (
+		<div className={'Peg' + colorClass} onClick={handleClick} />
+	);
 };
 
 export default Peg;

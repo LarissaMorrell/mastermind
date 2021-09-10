@@ -1,0 +1,35 @@
+.Row {
+  border-top: rgba(0, 0, 0, 0.5) 1px solid;
+  display: flex;
+  flex-direction: row;
+}
+
+.RowClues {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 5px 0;
+  width: 40px;
+}
+
+.slot {
+  background-color: darkred;
+  border-radius: 10px;
+  height: 20px;
+  margin: 5px;
+  width: 20px;
+}
+
+.answer {
+  background-color: sienna;
+  border-radius: 5px;
+  height: 10px;
+  margin: 0 5px;
+  width: 10px;
+}
+
+.answer.white {
+  background-color: white;
+}
