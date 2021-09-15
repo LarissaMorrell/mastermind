@@ -2,10 +2,10 @@ import React, {useState} from "react";
 
 import "./Peg.css";
 
-const COLORS = ['blue', 'yellow', 'red', 'green', 'white', 'black'];
+const COLORS = ['empty', 'blue', 'yellow', 'red', 'green', 'white', 'black'];
 
 const Peg = ({updateRow, isActive}) => {
-	const [colorIndex, setColorIndex] = useState(null);
+	const [colorIndex, setColorIndex] = useState(0);
 
 	const handleClick = () => {
 		if (!isActive) return;

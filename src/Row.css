@@ -30,6 +30,10 @@
   width: 10px;
 }
 
+.answer.black {
+  background-color: black;
+}
+
 .answer.white {
   background-color: white;
 }

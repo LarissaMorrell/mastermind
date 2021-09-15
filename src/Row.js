@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
 import Peg from './Peg';
 import './Row.css'
 
@@ -6,14 +6,10 @@ const Row = ({rowId, isActive, checkSolution}) => {
   const [pegValues, setPegValues] = useState(new Array(4).fill(null));
   const [clues, setClues] = useState(new Array(4).fill(''))
 
-  // useEffect(() => {
-  //   effect
-  //   return () => {
-  //     cleanup
-  //   }
-  // }, [results])
-
   const submitGuess = () => {
+    if (pegValues.includes(null)) {
+      return;
+    }
     const clues = checkSolution(pegValues);
     setClues(clues);
   }
@@ -26,7 +22,6 @@ const Row = ({rowId, isActive, checkSolution}) => {
 
   const RowClues = () => (
     <div className="RowClues">
-      {console.log(clues)}
       {clues.map((clueColor, i) => <div className={`answer${clueColor ? ' ' + clueColor : ''}`} key={`ans-r${rowId}-a${i}`} />)}
     </div>
   );

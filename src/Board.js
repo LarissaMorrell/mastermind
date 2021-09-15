@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import _ from 'lodash';
 import Row from './Row';
 import './Board.css';
 
@@ -8,21 +9,23 @@ const Board = ({}) => {
   const solution = ['blue', 'blue', 'blue', 'yellow'];
 
   const checkSolution = attempt => {
-    const clues = [];
-    const missedDict = {};
+    let solutionDict = _.countBy(solution);
+    let black = [];
+    let white = [];
+    let empty = [];
 
     for (let i = 0; i < attempt.length; i++) {
       if (attempt[i] === solution[i]) {
-        clues.push('black');
+        black.push('black');
+      } else if (solutionDict[attempt[i]]) {
+          white.push('white');
+          solutionDict[attempt[i]] -= 1;
       } else {
-        if (missedDict[attempt[i]]) {
-          missedDict[attempt[i]] += 1;
-        } else {
-          missedDict[attempt[i]] = 1;
-        }
+        empty.push('');
       }
     }
-    return [...clues, ...new Array(4 - clues.length).fill('')];
+    setCurrentRow(currentRow + 1);
+    return [...black, ...white, ...empty];
   }
 
   const rows = [];
