@@ -5,7 +5,7 @@ import './Board.css';
 
 const Board = ({}) => {
   const [currentRow, setCurrentRow] = useState(0);
-  const [lastRowResult, setLastRowResult] = useState(['', '', '', '']);
+  const [gameCompleted, setGameCompleted] = useState(false);
   const solution = ['blue', 'blue', 'blue', 'yellow'];
 
   const checkSolution = attempt => {
@@ -25,6 +25,7 @@ const Board = ({}) => {
       }
     }
     setCurrentRow(currentRow + 1);
+    black.length === solution.length && setGameCompleted(true);
     return [...black, ...white, ...empty];
   }
 
@@ -34,7 +35,7 @@ const Board = ({}) => {
       <Row
         rowId={i}
         key={'row-' + i}
-        isActive={i === currentRow}
+        isActive={i === currentRow && !gameCompleted}
         checkSolution={checkSolution}
       />
     );
