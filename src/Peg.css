@@ -1,34 +1,47 @@
 .Peg {
+  display: block;
+  background: black;
+  border-radius: 50%;
   height: 30px;
   width: 30px;
-  border-radius: 15px;
   margin: 10px;
-}
-
-.empty {
   background-color: sienna;
 }
 
+.clue {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+}
+
 .blue {
-  background-color: blue;
+  background: radial-gradient(circle at 10px 10px, blue, #000);
 }
 
 .yellow {
-  background-color: yellow;
+  background: radial-gradient(circle at 10px 10px, yellow, #000);
 }
 
 .red {
-  background-color: red;
+  background: radial-gradient(circle at 10px 10px, red, #000);
 }
 
 .green {
-  background-color: green;
+  background: radial-gradient(circle at 10px 10px, green, #000);
 }
 
 .white {
-  background-color: white;
+  background: radial-gradient(circle at 10px 10px, white, #000);
+}
+
+.clue.white {
+  background: radial-gradient(circle at 3px 3px, white, #000);
 }
 
 .black {
-  background-color: black;
+  background: radial-gradient(circle at 10px 10px, #565656, #000);
+}
+
+.clue.black {
+  background: radial-gradient(circle at 3px 3px, #565656, #000);
 }

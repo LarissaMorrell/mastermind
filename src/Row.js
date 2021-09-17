@@ -22,7 +22,8 @@ const Row = ({rowId, isActive, checkSolution}) => {
 
   const RowClues = () => (
     <div className="RowClues">
-      {clues.map((clueColor, i) => <div className={`answer${clueColor ? ' ' + clueColor : ''}`} key={`ans-r${rowId}-a${i}`} />)}
+      {clues.map((clueColor, i) => 
+      <Peg key={`ans-r${rowId}-a${i}`} isClue clueColor={clueColor ? clueColor : ''} />)}
     </div>
   );
 

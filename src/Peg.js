@@ -4,7 +4,7 @@ import "./Peg.css";
 
 const COLORS = ['empty', 'blue', 'yellow', 'red', 'green', 'white', 'black'];
 
-const Peg = ({updateRow, isActive}) => {
+const Peg = ({updateRow, isActive, isClue, clueColor}) => {
 	const [colorIndex, setColorIndex] = useState(0);
 
 	const handleClick = () => {
@@ -13,7 +13,10 @@ const Peg = ({updateRow, isActive}) => {
 		updateRow(COLORS[colorIndex + 1]);
 	}
 
-	const colorClass = colorIndex !== null ? ' ' + COLORS[colorIndex] : ' empty';
+	let colorClass = colorIndex !== null ? ' ' + COLORS[colorIndex] : '';
+	if (isClue) {
+		colorClass += ' clue ' + clueColor;
+	}
 	return (
 		<div className={'Peg' + colorClass} onClick={handleClick} />
 	);

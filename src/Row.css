@@ -13,27 +13,3 @@
   padding: 5px 0;
   width: 40px;
 }
-
-.slot {
-  background-color: darkred;
-  border-radius: 10px;
-  height: 20px;
-  margin: 5px;
-  width: 20px;
-}
-
-.answer {
-  background-color: sienna;
-  border-radius: 5px;
-  height: 10px;
-  margin: 0 5px;
-  width: 10px;
-}
-
-.answer.black {
-  background-color: black;
-}
-
-.answer.white {
-  background-color: white;
-}
