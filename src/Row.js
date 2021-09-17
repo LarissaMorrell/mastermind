@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import PrimaryButton from './components/PrimaryButton';
 import Peg from './Peg';
 import './Row.css'
 
@@ -21,21 +22,33 @@ const Row = ({rowId, isActive, checkSolution}) => {
   }
 
   const RowClues = () => (
-    <div className="RowClues">
-      {clues.map((clueColor, i) => 
-      <Peg key={`ans-r${rowId}-a${i}`} isClue clueColor={clueColor ? clueColor : ''} />)}
+    <div className="clues-container">
+      <div className="clue-row">
+        <Peg isClue clueColor={clues[0]} />
+        <Peg isClue clueColor={clues[1]} />
+      </div>
+      <div className="clue-row">
+        <Peg isClue clueColor={clues[2]} />
+        <Peg isClue clueColor={clues[3]} />
+      </div>
     </div>
   );
 
   const spaces = [];
   for (let i = 0; i < 4; i++) {
-    spaces.push(<Peg key={`peg-r${rowId}-${i}`} isActive={isActive} updateRow={(color) => updatePegValues(i, color)} />);
+    spaces.push(
+      <div>
+      <div className="outer-ring">
+        <Peg key={`peg-r${rowId}-${i}`} isActive={isActive} updateRow={(color) => updatePegValues(i, color)} />
+      </div>
+      </div>
+    );
   }
   return (
     <div className="Row" key={rowId}>
-      {spaces}
       <RowClues />
-      {isActive && <button onClick={submitGuess}>Submit</button>}
+      {spaces}
+      {isActive && <PrimaryButton handleClick={submitGuess} text="Submit" />}
     </div>
   );
 }

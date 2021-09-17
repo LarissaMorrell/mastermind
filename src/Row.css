@@ -1,15 +1,11 @@
 .Row {
+  align-items: center;
   border-top: rgba(0, 0, 0, 0.5) 1px solid;
   display: flex;
   flex-direction: row;
+  padding: 12px;
 }
 
-.RowClues {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 5px 0;
-  width: 40px;
+.clues-container {
+  margin-right: 12px;
 }

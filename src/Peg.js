@@ -18,7 +18,7 @@ const Peg = ({updateRow, isActive, isClue, clueColor}) => {
 		colorClass += ' clue ' + clueColor;
 	}
 	return (
-		<div className={'Peg' + colorClass} onClick={handleClick} />
+    <div className={'Peg' + colorClass} onClick={handleClick} />
 	);
 };
 
