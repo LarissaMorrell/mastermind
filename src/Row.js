@@ -51,7 +51,7 @@ const Row = ({ rowId, isActive, checkSolution }) => {
     <div className="Row" key={rowId}>
       <RowClues />
       {spaces}
-      {isActive && <PrimaryButton handleClick={submitGuess} text="Submit" />}
+      {isActive && <PrimaryButton handleClick={submitGuess} text="✓" />}
     </div>
   );
 };

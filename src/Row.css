@@ -1,9 +1,12 @@
 .Row {
   align-items: center;
-  border-top: rgba(0, 0, 0, 0.5) 1px solid;
   display: flex;
   flex-direction: row;
   padding: 12px;
+}
+
+.Row:not(:first-child) {
+  border-top: rgba(102, 52, 52, 0.5) 1px solid;
 }
 
 .clues-container {
