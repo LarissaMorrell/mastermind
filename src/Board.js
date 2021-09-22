@@ -3,7 +3,7 @@ import _ from 'lodash';
 import Row from './Row';
 import './Board.css';
 
-const Board = ({}) => {
+const Board = ({setFireworks}) => {
   const [currentRow, setCurrentRow] = useState(0);
   const [gameCompleted, setGameCompleted] = useState(false);
   const solution = ['blue', 'blue', 'blue', 'yellow'];
@@ -25,7 +25,10 @@ const Board = ({}) => {
       }
     }
     setCurrentRow(currentRow + 1);
-    black.length === solution.length && setGameCompleted(true);
+    if (black.length === solution.length) {
+      setGameCompleted(true);
+      setFireworks(true);
+    }
     return [...black, ...white, ...empty];
   }
 

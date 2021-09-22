@@ -5,6 +5,7 @@ import "./Row.css";
 
 const Row = ({ rowId, isActive, checkSolution }) => {
   const [pegValues, setPegValues] = useState(new Array(4).fill(null));
+  const [buttonDisabled, setButtonDisabled] = useState(true);
   const [clues, setClues] = useState(new Array(4).fill(""));
 
   const submitGuess = () => {
@@ -18,6 +19,7 @@ const Row = ({ rowId, isActive, checkSolution }) => {
   const updatePegValues = (pegIdx, color) => {
     const nPegValues = pegValues;
     nPegValues[pegIdx] = color;
+    setButtonDisabled(nPegValues.includes(null));
     setPegValues(nPegValues);
   };
 
@@ -51,7 +53,9 @@ const Row = ({ rowId, isActive, checkSolution }) => {
     <div className="Row" key={rowId}>
       <RowClues />
       {spaces}
-      {isActive && <PrimaryButton handleClick={submitGuess} text="✓" />}
+      {isActive && <div style={{width: 75}}>
+        <PrimaryButton handleClick={submitGuess} text="✓" disabled={buttonDisabled} />
+      </div>}
     </div>
   );
 };
