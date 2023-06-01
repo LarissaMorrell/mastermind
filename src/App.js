@@ -13,6 +13,15 @@ class App extends Component {
 
   setFireworks = showFireworks => this.setState({showFireworks});
 
+  handleChange = e => {
+    console.log(e.target.value)
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    alert(e.target.value)
+  }
+ 
   render() {
     return (
       <div className="App">
@@ -30,6 +39,13 @@ class App extends Component {
             </div>
           </>
         )}
+        {/* <div>
+          <form id="my-form" onSubmit={this.handleSubmit}>
+            <label htmlFor="my-input">Practice</label>
+            <input id="my-input" name="the-input" type="text" onChange={this.handleChange} />
+            <button type="submit">Submit</button>
+          </form>
+        </div> */}
       </div>
     );
   }
